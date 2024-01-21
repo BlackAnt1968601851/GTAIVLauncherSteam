@@ -12,11 +12,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
         {
             if (SteamAPI.Init())
             {
-                var GTAIV = "SteamCheck.exe";
+                var GTAIV = "LaunchGTAIV.exe";
                 if (File.Exists(GTAIV) == true)
                 {
                     var v = System.AppDomain.CurrentDomain.BaseDirectory;
-                    Process.Start(GTAIV, "/immediate 23\\10\\2009 15:18:59" + " \"" + v + "LaunchGTAIV.exe\"");
+                    Process.Start(GTAIV);
                     Environment.Exit(0);
                 }
                 else
