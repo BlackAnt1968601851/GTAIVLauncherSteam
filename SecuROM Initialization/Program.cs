@@ -12,9 +12,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
         {
             if (SteamAPI.Init())
             {
+                var a = SteamUtils.GetAppID();
                 var GTAIV = "SteamCheck.exe";
-                var a = new CGameID(SteamUtils.GetAppID());
-                if (a == (CGameID)12210) {
+                if (a == (AppId_t)12210) {
                     if (File.Exists(GTAIV) == true) {
                         Console.Clear();
                         var v = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -29,7 +29,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Environment.Exit(3);
                     }
                 }
-                if (!(a == (CGameID)12210)) {
+                if (!(a == (AppId_t)12210)) {
                     Console.Clear();
                     Console.WriteLine("Steam DRM has failed Error: 4");
                     Console.WriteLine("You need to purchase GTA IV on steam.");
