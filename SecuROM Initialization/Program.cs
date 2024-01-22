@@ -12,18 +12,31 @@ namespace MyApp // Note: actual namespace depends on the project name.
         {
             if (SteamAPI.Init())
             {
-                var GTAIV = "LaunchGTAIV.exe";
-                if (File.Exists(GTAIV) == true)
-                {
-                    var v = System.AppDomain.CurrentDomain.BaseDirectory;
-                    Process.Start(GTAIV);
-                    Environment.Exit(0);
+                var GTAIV = "SteamCheck.exe";
+                var a = new CGameID(SteamUtils.GetAppID());
+                if (a == (CGameID)12210) {
+                    if (File.Exists(GTAIV) == true) {
+                        Console.Clear();
+                        var v = System.AppDomain.CurrentDomain.BaseDirectory;
+                        Process.Start(GTAIV, "/immediate 23\\10\\2009 15:18:59" + " \"" + v + "LaunchGTAIV.exe\"");
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Error Code: 3\nYou seem to be missing SteamCheck.exe.");
+                        Console.ReadKey();
+                        Environment.Exit(3);
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Error Code: 3\nYou seem to be missing SteamCheck.exe.");
+                if (!(a == (CGameID)12210)) {
+                    Console.Clear();
+                    Console.WriteLine("Steam DRM has failed Error: 4");
+                    Console.WriteLine("You need to purchase GTA IV on steam.");
+                    Console.WriteLine("Launch the game from GTA IV on steam.");
+                    Console.WriteLine("Not from whatever game that is not gta iv.");
                     Console.ReadKey();
-                    Environment.Exit(3);
+                    Environment.Exit(0);
                 }
             }
             if (SteamAPI.IsSteamRunning() == false)
@@ -50,3 +63,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
         }
     }
 }
+
+
+

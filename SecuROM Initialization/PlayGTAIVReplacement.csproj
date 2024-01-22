@@ -12,12 +12,28 @@
     <Copyright>© BlackAnt02 2024</Copyright>
     <PackageId>$(AssemblyName)</PackageId>
     <AssemblyName>PlayGTAIV Launcher</AssemblyName>
+    <Version>1.0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="Steamworks.NET">
       <HintPath>Steamworks.NET.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LaunchGTAIV.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SteamCheck.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="steam_api.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="steam_appid.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
